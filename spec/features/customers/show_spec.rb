@@ -39,6 +39,22 @@ describe "User Story 1 When I visit a customer show page" do
       # end
     end
   end
+
+  describe "User Story 2 When I visit a customer's show page" do
+    it 'I see a form to add a new item to this customer' do
+      visit "/customers/#{jerry.id}"
+
+      expect(page).to have_field('Item_id')
+      expect(page).to have_button("Submit")
+    end
+
+    xit "I am redirected back to the customer's show page after filling out form" do
+      fill_in'Item_id', with:"#{cookies.id}"
+      click_button("Submit")
+      # expect(current_path).to eq()
+    
+    end
+  end
 end
 
   

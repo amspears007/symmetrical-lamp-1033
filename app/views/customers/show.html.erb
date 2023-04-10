@@ -11,4 +11,11 @@
   <li>Supermarket: <%= item.supermarket.name %>
 
   <% end %>
-  <ul>
+<ul><br>
+
+<%= form_with url: "/customer_items/new", method: :post, local: true do |f| %>
+  <%= f.label :item_id %>
+  <%= f.text_field :id %><br>
+
+  <%= f.submit "Submit" %>
+  <% end %>
