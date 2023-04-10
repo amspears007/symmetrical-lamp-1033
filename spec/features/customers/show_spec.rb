@@ -25,14 +25,18 @@ RSpec.describe 'customer show page', type: :feature do
 describe "User Story 1 When I visit a customer show page" do
   it "I see the customer's name and I see its a list of its items with item's name, price, and the name of the supermarket that it belongs to" do
     visit "/customers/#{jerry.id}"
+    save_and_open_page
     
     expect(page).to have_content('Name: Jerry')
-    expect(page).to have_content('Item: chicken')
-    expect(page).to have_content('Price: 6')
 
-    expect(page).to have_content('Supermarket: King Soopers')
-    expect(page).to_not have_content('Name: George')
-    expect(page).to_not have_content('Item: oreos')
+    # within("#item-list") do
+      expect(page).to have_content('Item: chicken')
+      expect(page).to have_content('Price: 6')
+
+      expect(page).to have_content('Supermarket: King Soopers')
+      expect(page).to_not have_content('Name: George')
+      expect(page).to_not have_content('Item: oreos')
+      # end
     end
   end
 end
